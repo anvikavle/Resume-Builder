@@ -1,0 +1,17 @@
+#resume-template{
+    display: none;
+}
+
+.resume-template{
+    display: none;
+}
+.myimg{
+    
+    border: 50%;
+    hight: 150px;
+    width: 150px;
+ }
+
+ .background{
+ background-color: lightcoral;
+ }

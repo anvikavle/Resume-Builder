@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+
+    <title>Resume Builder Web Application</title>
+</head>
+
+<body>
+
+
+    <div class="container" id="resume-form">
+        <h1 class="text-center my-2">Resume Builder Web Application</h1>
+
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <h3>Personal Information</h3>
+
+                <div class="form-group mt-2">
+                    <label for="nameField">Full Name:</label>
+                    <input type="text" id="nameField" placeholder="Enter here" class="form-control" />
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="contactField">Contact no:</label>
+                    <input type="text" id="contactField" placeholder="Enter here" class="form-control" />
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="addressField">Address:</label>
+                    <textarea id="addressField" placeholder="Enter here" class="form-control" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Select your photo</label>
+                    <input id="imgField" type="file" class="form-control"/>
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="panField">Pan no:</label>
+                    <input type="text" id="panField" placeholder="Enter here" class="form-control" />
+                </div>
+
+                <p class="text-secondary my-3">Important links</p>
+
+                <div class="form-group mt-1">
+                    <label for="linkedField">LinkedIn</label>
+                    <input type="text" id="linkedField" placeholder="Enter here" class="form-control" />
+                </div>
+                <div class="form-group mt-2">
+                    <label for="github">Github</label>
+                    <input type="text" id="githubField" placeholder="Enter here" class="form-control" />
+                </div>
+                <div class="form-group mt-2">
+                    <label for="emField">Email</label>
+                    <input type="text" id="emField" placeholder="Enter here" class="form-control" />
+                </div>
+
+                <div class="form-group mt-2">
+                    <h3>Template Color</h3>
+                    <select name=colors id="colors">
+                        <option style="background-color: lightcoral" id="red">Default</option>
+                        <option style="background-color: red" id="red">Red </option>
+                        <option style="background-color: pink" id="pink">Pink</option>
+                        <option style="background-color: green" id="green">green</option>
+
+                    </select>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="form-group mt-2" id="ed">
+                    <h3>Educational Details</h3>
+                    <textarea placeholder="Enter here" class="form-control edField"></textarea>
+                    <div class="container text-center" id="edAddButton">
+                        <button onclick="addNewEDField()" class="btn btn-primary btn-sm mt-1">
+                            Add</button>
+                    </div>
+                </div>
+
+
+                <div id="mode">
+                    <input type="radio" id="rdFresher" name="rdb" onclick="checkMode()"> Fresher </input>
+                    <input type="radio" id="rdExperiance" name="rdb" onclick="checkMode()"> Experianced </input>
+                </div>
+
+
+                <div class="form-group mt-2" id="sk">
+                    <h3>Skills</h3>
+                    <div class="container text-center" id="skAddButton"></div>
+                    <textarea id="skField" placeholder="Enter here" class="form-control skField"></textarea>
+                </div>
+
+                <div class="form-group mt-2" id="we">
+                    <h3>Work experience</h3>
+                    <textarea placeholder="Enter here" class="form-control weField"></textarea>
+                    <div class="container text-center" id="weAddButton">
+
+                        <button onclick="addNewWEField()" class="btn btn-primary btn-sm mt-1">
+                            Add</button>
+                    </div>
+                </div>
+
+
+                <div class="form-group mt-2" id="ce">
+                    <h3>Certifications</h3>
+                    <textarea placeholder="Enter here" class="form-control ceField"></textarea>
+                    <div class="container text-center" id="ceAddButton">
+
+                        <button onclick="addNewCEField()" class="btn btn-primary btn-sm mt-1">
+                            Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container text-center mt-1">
+            <button onclick="generateresume()" class="btn btn-primary btn lg">Generate Resume</button>
+        </div>
+    </div>
+
+
+
+
+
+    <!--Resume Template-->
+    <div id="editor"></div>
+    <div id="div-container" class="resume-template" style="padding: 2%;">
+
+        <div id="resume-main-div">
+            <div class="container" id="resume-template">
+                <div class="row">
+                    <div class="col-md-4 text-center py-5 background" id="resume-innerTemplate">
+                        <!--first column-->
+
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/010/260/479/small/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg"
+                            alt=""
+                            class="img-fluid myimg" 
+                            id="imgTemplate"
+                            />
+
+                        <div class="container">
+                            <br>
+                            <hr />                         
+                            <p id="nameT1">Sonal sanjay mali</p>
+                            <p id="contactT">8424827169</p>
+                            <p id="addressT">23A, 17, Sant.Dnyaneshwar Nagar</p>
+                            <p id="panT">abc</p>
+
+
+                            <hr />
+
+                            <p>
+                                <a id="liT" href="#1">https://www.linkedin.com/sonalmali</a>
+                            </p>
+                            <p>
+                                <a id="gitT" href="#1">https://www.Github.com/sonalmali</a>
+                            </p>
+                            <p>
+                                <a id="emT" href="#1">https://www.email.com/sonalmali</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 pyt-5 background" id="resume-innerTemplate">
+                        <!--second column-->
+                        <h1 id="nameT2" class="text-center" style="font-weight: 500">
+                            Sonal Sanjay Mali
+                        </h1>
+
+                        <!--Educational Details card-->
+                        <div class="card mt-4">
+                            <div class="card-header background" id="card-cl">
+                                <h3>Educational Details</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul id="edT">
+                                    <li>
+                                        jjfdhtf tdytdchtfcjy jdtdftf jfdtdfjbf fuydy
+                                    </li>
+                                    <li>
+                                        jjfdhtf tdytdchtfcjy jdtdftf jfdtdfjbf fuydy
+                                    </li>
+                                    <li>
+                                        jjfdhtf tdytdchtfcjy jdtdftf jfdtdfjbf fuydy
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--Skills card-->
+                        <div class="card mt-4">
+                            <div class="card-header background" id="card-cl1">
+                                <h3>Skills</h3>
+                            </div>
+                            <div class="card-body">
+                                <p id="skT">sdfgregrgsfaadadawd</p>
+                            </div>
+                        </div>
+
+                        <!--Work Experience-->
+                        <div class="card mt-4">
+                            <div class="card-header background" id="card-cl2">
+                                <h3>Work Experiance</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul id="weT">
+                                    <li>
+                                        jjfdhtf tdytdchtfcjy jdtdftf jfdtdfjbf fuydy
+                                    </li>
+                                    <li>
+                                        jjfdhtf tdytdchtfcjy jdtdftf jfdtdfjbf fuydy
+                                    </li>
+                                    <li>
+                                        jjfdhtf tdytdchtfcjy jdtdftf jfdtdfjbf fuydy
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--Certifications-->
+                        <div class="card mt-4">
+                            <div class="card-header background" id="card-cl3">
+                                <h3>Certifications</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul id="ceT">
+                                    <li>
+                                        jjfdhtf tdytdchtfcjy jdtdftf jfdtdfjbf fuydy
+                                    </li>
+                                    <li>
+                                        jjfdhtf tdytdchtfcjy jdtdftf jfdtdfjbf fuydy
+                                    </li>
+                                    <li>
+                                        jjfdhtf tdytdchtfcjy jdtdftf jfdtdfjbf fuydy
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-3 text-center">
+            <button onclick="printresume()" class="btn background">
+                Print Resume
+            </button>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
